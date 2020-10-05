@@ -1,0 +1,23 @@
+transactions.view_transactions:
+  path: '/view/transactions'
+  defaults:
+    _form: '\Drupal\transactions\Form\ViewTransactions'
+    _title: 'ViewTransactions'
+  requirements:
+    _access: 'TRUE'
+
+transactions.view_transaction:
+  path: '/view/transaction/{tid}'
+  defaults:
+    _form: '\Drupal\transactions\Form\ViewTransaction'
+    _title: 'ViewTransaction'
+  requirements:
+    _access: 'TRUE'
+
+transactions.transactions:
+  path: '/transactions'
+  defaults:
+    _controller: '\Drupal\transactions\Controller\TransactionsController::myPage'
+    _title: 'My first page in D8'
+  requirements:
+    _permission: 'access content'

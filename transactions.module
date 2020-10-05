@@ -1,0 +1,64 @@
+<?php
+
+/**
+ * @file
+ * Contains transactions.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function transactions_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the transactions module.
+    case 'help.page.transactions':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Module to handle the recording and display of user transactions.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter
+ */
+function transactions_page_attachments_alter(array &$page) {
+  // Get the current path.
+  //$path = $current_path = \Drupal::service('path.current')->getPath();
+  // If we're on the transaction page, add our library.
+  //if ($path == '/transactions') {
+    //$page['#attached']['library'][] = 'transactions/transactions-daterangepicker';
+  //}
+}
+
+/**
+ * Implements hook_preprocess_page() for page.html.twig.
+ */
+function transactions_preprocess_page(array &$variables) {
+  // Get the current path.
+  $path = $current_path = \Drupal::service('path.current')->getPath();
+
+  if ($path == '/transactions') {
+    $variables['#attached']['library'][] = 'transactions/transactions-daterangepicker';
+    $variables['#attached']['library'][] = 'transactions/close-modal';
+  }
+
+  if ($variables['is_front'] == TRUE) {
+    $variables['#attached']['library'][] = 'transactions/close-modal';
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+//function transactions_theme() {
+//  return [
+//    'transactions' => [
+//      'render element' => 'children',
+//    ],
+//  ];
+//}

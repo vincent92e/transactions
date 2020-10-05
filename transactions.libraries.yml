@@ -1,0 +1,13 @@
+transactions-daterangepicker:
+  css:
+    theme:
+      //cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css: { type: external }
+  js:
+    #//cdn.jsdelivr.net/jquery/latest/jquery.min.js: { type: external }
+    //cdn.jsdelivr.net/momentjs/latest/moment.min.js: { type: external }
+    //cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js: { type: external }
+    js/daterange.picker.js: {}
+
+close-modal:
+  js:
+    js/close.modal.js: {}

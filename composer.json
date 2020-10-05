@@ -1,0 +1,13 @@
+{
+    "name": "transactions",
+    "type": "drupal-module",
+    "description": "Module to handle the recording and display of user transactions.",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/transactions",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/transactions",
+        "source": "http://cgit.drupalcode.org/transactions",
+    },
+}

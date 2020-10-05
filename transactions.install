@@ -1,0 +1,87 @@
+<?php
+
+/**
+ *   Implements hook_schema().
+ */
+function transactions_schema() {
+  $schema['payyed_transactions'] = array(
+    'description' => 'Store user transactions.',
+    'fields' => [
+      'rid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => t('Primary Key: Unique row id of each transaction'),
+      ),
+      'uid' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'unsigned' => TRUE,
+        'description' => t('Id of each user'),
+      ),
+      'name' => array(
+        'type' => 'varchar_ascii',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('Payment name'),
+      ),
+      'description' => array(
+        'type' => 'text',
+        'size' => 'medium',
+        'not null' => FALSE,
+        'description' => t('Payment description'),
+      ),
+      'transaction_id' => array(
+        'type' => 'int',
+        'size' => 'big',
+        'not null' => TRUE,
+        'description' => t('Transaction id'),
+      ),
+      'amount' => array(
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 13,
+        'scale' => 2,
+        'not null' => FALSE,
+        'description' => t('Transaction amount'),
+      ),
+      'fee' => array(
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 13,
+        'scale' => 2,
+        'not null' => FALSE,
+        'description' => t('Transaction fee'),
+      ),
+      'transaction_type' => array(
+        'type' => 'varchar_ascii',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('Transaction type'),
+      ),
+      'date' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => t('Transaction date'),
+      ),
+      'status' => array(
+        'type' => 'char',
+        'length' => 20,
+        'not null' => TRUE,
+        'description' => t('Transaction status'),
+      ),
+
+#       'data' => array(
+#         'type' => 'text',
+#         'size' => 'medium',
+#         'not null' => FALSE,
+#         'description' => 'Store json data of user transactions of each user',
+#       ),
+    ],
+    'primary key' => array('rid'),
+  );
+
+  return $schema;
+}

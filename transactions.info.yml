@@ -1,0 +1,5 @@
+name: 'Transactions'
+type: module
+description: 'Module to handle the recording and display of user transactions.'
+core: 8.x
+package: 'Custom'
